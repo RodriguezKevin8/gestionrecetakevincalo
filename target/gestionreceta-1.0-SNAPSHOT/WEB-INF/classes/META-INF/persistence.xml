@@ -1,0 +1,26 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="my_persistence_unit" transaction-type="RESOURCE_LOCAL">
+        <class>entidades.Usuario</class>
+        <class>entidades.Receta</class>
+        <class>entidades.Favorito</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        
+        <properties>
+            <!-- Configuración de la conexión a la base de datos -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cocina?useSSL=false&amp;serverTimezone=UTC"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            
+            <!-- Opciones de configuración adicionales para Hibernate o EclipseLink -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+            
+            <!-- Opcional: configurar generación de esquema -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+            
+            <!-- Opcional: habilitar logging de SQL para depuración -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
