@@ -30,6 +30,12 @@
                 <option value="RENUNCIO" ${usuario.estado == 'RENUNCIO' ? 'selected' : ''}>RENUNCIO</option>
             </select><br><br>
 
+            <label for="tipoUsuario">Tipo de Usuario:</label><br>
+            <select id="tipoUsuario" name="tipoUsuario">
+                <option value="ADMIN" ${usuario.tipoUsuario == 'ADMIN' ? 'selected' : ''}>Admin</option>
+                <option value="USUARIO" ${usuario.tipoUsuario == 'USUARIO' ? 'selected' : ''}>Usuario</option>
+            </select><br><br>
+
             <label for="accesoSistema">Acceso al Sistema:</label>
             <input type="checkbox" id="accesoSistema" name="accesoSistema" value="true" ${usuario.accesoSistema ? 'checked' : ''}><br><br>
 
@@ -53,3 +59,4 @@
         </form>
     </body>
 </html>
+

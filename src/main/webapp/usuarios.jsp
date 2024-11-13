@@ -17,6 +17,7 @@
             <th>Fecha de Registro</th>
             <th>Estado</th>
             <th>Acceso al Sistema</th>
+            <th>Tipo de Usuario</th>
             <th>Foto</th>
             <th>Acciones</th>
         </tr>
@@ -29,6 +30,7 @@
                 <td>${usuario.fechaRegistro}</td>
                 <td>${usuario.estado}</td>
                 <td>${usuario.accesoSistema ? "Sí" : "No"}</td>
+                <td>${usuario.tipoUsuario}</td> <!-- Mostrar tipo de usuario -->
                 <td>
                     <c:choose>
                         <c:when test="${usuario.fotoBase64 != null}">
@@ -46,18 +48,23 @@
             </tr>
         </c:forEach>
     </table>
+    
     <!-- Formulario para agregar un nuevo usuario -->
     <h2>Agregar Nuevo Usuario</h2>
     <form action="${pageContext.request.contextPath}/usuarios" method="post" enctype="multipart/form-data">
         <!-- Campos de entrada para el usuario -->
         <label for="nombre">Nombre:</label><br>
         <input type="text" id="nombre" name="nombre" required><br>
+        
         <label for="apellido">Apellido:</label><br>
         <input type="text" id="apellido" name="apellido" required><br>
+        
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" required><br>
+        
         <label for="clave">Contraseña:</label><br>
         <input type="password" id="clave" name="clave" required><br>
+        
         <label for="estado">Estado:</label><br>
         <select id="estado" name="estado">
             <option value="ACTIVO">ACTIVO</option>
@@ -65,11 +72,21 @@
             <option value="DESPEDIDO">DESPEDIDO</option>
             <option value="RENUNCIO">RENUNCIO</option>
         </select><br><br>
+        
         <label for="accesoSistema">Acceso al Sistema:</label>
         <input type="checkbox" id="accesoSistema" name="accesoSistema" value="true" checked><br><br>
+        
+        <label for="tipoUsuario">Tipo de Usuario:</label><br>
+        <select id="tipoUsuario" name="tipoUsuario">
+            <option value="ADMIN">Admin</option>
+            <option value="USUARIO">Usuario</option>
+        </select><br><br>
+        
         <label for="foto">Foto:</label><br>
         <input type="file" id="foto" name="foto"><br><br>
+        
         <input type="submit" value="Agregar Usuario">
     </form>
 </body>
 </html>
+

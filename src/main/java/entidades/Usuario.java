@@ -31,17 +31,20 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private EstadoUsuario estado;
     
-    // Campo para almacenar la versión Base64 de la foto
     @Transient // Esto indica que no se debe persistir en la base de datos
     private String fotoBase64;
 
     @Column(name = "acceso_sistema", nullable = false)
     private boolean accesoSistema = true;
 
+    @Column(name = "tipo_usuario", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario tipoUsuario;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Favorito> favoritos;
 
-    public Usuario(Long idUsuario, String nombre, String apellido, String email, LocalDate fechaRegistro, String clave, byte[] foto, EstadoUsuario estado, List<Favorito> favoritos) {
+    public Usuario(Long idUsuario, String nombre, String apellido, String email, LocalDate fechaRegistro, String clave, byte[] foto, EstadoUsuario estado, boolean accesoSistema, TipoUsuario tipoUsuario, List<Favorito> favoritos) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -50,11 +53,15 @@ public class Usuario {
         this.clave = clave;
         this.foto = foto;
         this.estado = estado;
+        this.accesoSistema = accesoSistema;
+        this.tipoUsuario = tipoUsuario;
         this.favoritos = favoritos;
     }
 
     public Usuario() {
     }
+
+    // Getters y setters...
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -128,6 +135,14 @@ public class Usuario {
         this.accesoSistema = accesoSistema;
     }
 
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
     public List<Favorito> getFavoritos() {
         return favoritos;
     }
@@ -136,7 +151,6 @@ public class Usuario {
         this.favoritos = favoritos;
     }
 
-    // Getters y setters para fotoBase64
     public String getFotoBase64() {
         return fotoBase64;
     }
@@ -144,7 +158,6 @@ public class Usuario {
     public void setFotoBase64(String fotoBase64) {
         this.fotoBase64 = fotoBase64;
     }
-   
 }
 
 enum EstadoUsuario {
@@ -152,4 +165,9 @@ enum EstadoUsuario {
     INCAPACITADO,
     DESPEDIDO,
     RENUNCIO
+}
+
+enum TipoUsuario {
+    ADMIN,
+    USUARIO
 }

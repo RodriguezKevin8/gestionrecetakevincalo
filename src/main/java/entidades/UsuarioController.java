@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+
 import java.util.Base64;
 import java.util.List;
 
@@ -39,14 +40,22 @@ public class UsuarioController {
 
     // Método para convertir byte[] a una cadena Base64
     public String convertirFotoABase64(byte[] foto) {
-        return Base64.getEncoder().encodeToString(foto);
+        return (foto != null) ? Base64.getEncoder().encodeToString(foto) : null;
     }
 
     // Obtener todos los usuarios
     public List<Usuario> obtenerTodosLosUsuarios() {
         EntityManager em = getEntityManager();
         try {
-            return em.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
+            List<Usuario> usuarios = em.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
+
+            // Convertir fotos a Base64 para cada usuario
+            for (Usuario usuario : usuarios) {
+                if (usuario.getFoto() != null) {
+                    usuario.setFotoBase64(convertirFotoABase64(usuario.getFoto()));
+                }
+            }
+            return usuarios;
         } finally {
             em.close();
         }
@@ -56,7 +65,13 @@ public class UsuarioController {
     public Usuario encontrarUsuario(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Usuario.class, id);
+            Usuario usuario = em.find(Usuario.class, id);
+
+            // Convertir la foto a Base64 si existe
+            if (usuario != null && usuario.getFoto() != null) {
+                usuario.setFotoBase64(convertirFotoABase64(usuario.getFoto()));
+            }
+            return usuario;
         } finally {
             em.close();
         }
@@ -108,3 +123,4 @@ public class UsuarioController {
         }
     }
 }
+

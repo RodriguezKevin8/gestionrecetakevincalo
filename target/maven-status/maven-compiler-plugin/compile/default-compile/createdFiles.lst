@@ -1,6 +1,7 @@
 com\mycompany\gestionreceta\JakartaRestConfiguration.class
 com\mycompany\gestionreceta\resources\JakartaEE10Resource.class
 entidades\Receta.class
+entidades\TipoUsuario.class
 entidades\Favorito.class
 entidades\EstadoFavorito.class
 entidades\UsuarioServlet.class
