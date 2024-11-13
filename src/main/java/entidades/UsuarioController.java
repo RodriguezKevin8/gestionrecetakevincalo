@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+import java.util.Base64;
 import java.util.List;
 
 public class UsuarioController {
@@ -34,6 +35,11 @@ public class UsuarioController {
         } finally {
             em.close();
         }
+    }
+
+    // Método para convertir byte[] a una cadena Base64
+    public String convertirFotoABase64(byte[] foto) {
+        return Base64.getEncoder().encodeToString(foto);
     }
 
     // Obtener todos los usuarios
@@ -102,4 +108,3 @@ public class UsuarioController {
         }
     }
 }
-

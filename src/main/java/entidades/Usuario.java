@@ -30,6 +30,10 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     private EstadoUsuario estado;
+    
+    // Campo para almacenar la versión Base64 de la foto
+    @Transient // Esto indica que no se debe persistir en la base de datos
+    private String fotoBase64;
 
     @Column(name = "acceso_sistema", nullable = false)
     private boolean accesoSistema = true;
@@ -132,6 +136,14 @@ public class Usuario {
         this.favoritos = favoritos;
     }
 
+    // Getters y setters para fotoBase64
+    public String getFotoBase64() {
+        return fotoBase64;
+    }
+
+    public void setFotoBase64(String fotoBase64) {
+        this.fotoBase64 = fotoBase64;
+    }
    
 }
 
