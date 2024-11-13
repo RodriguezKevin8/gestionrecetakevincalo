@@ -29,6 +29,13 @@
             <td>${usuario.estado}</td>
             <td>${usuario.accesoSistema ? "Sí" : "No"}</td>
             <td>
+                <!-- Botón de edición -->
+                <form action="${pageContext.request.contextPath}/usuarios" method="get" style="display:inline;">
+                    <input type="hidden" name="action" value="edit">
+                    <input type="hidden" name="id" value="${usuario.idUsuario}">
+                    <input type="submit" value="Editar">
+                </form>
+                
                 <!-- Botón de eliminación -->
                 <form action="${pageContext.request.contextPath}/usuarios" method="get" style="display:inline;">
                     <input type="hidden" name="action" value="delete">
@@ -39,6 +46,7 @@
         </tr>
     </c:forEach>
 </table>
+
 
 
 <h2>Agregar Nuevo Usuario</h2>
