@@ -1,10 +1,12 @@
-entidades\Receta.class
 com\mycompany\gestionreceta\JakartaRestConfiguration.class
 com\mycompany\gestionreceta\resources\JakartaEE10Resource.class
+entidades\Receta.class
 entidades\Favorito.class
 entidades\EstadoFavorito.class
+entidades\UsuarioServlet.class
 entidades\EstadoReceta.class
 entidades\RecetaController.class
 entidades\RecetaServlet.class
+entidades\UsuarioController.class
 entidades\Usuario.class
 entidades\EstadoUsuario.class
