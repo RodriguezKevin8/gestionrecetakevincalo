@@ -3,6 +3,7 @@ package entidades;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 
 import java.util.Base64;
@@ -33,6 +34,19 @@ public class UsuarioController {
                 tx.rollback();
             }
             e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+
+    public Usuario findByEmail(String email) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email", Usuario.class)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null; // No se encontró el usuario
         } finally {
             em.close();
         }
@@ -123,4 +137,3 @@ public class UsuarioController {
         }
     }
 }
-
