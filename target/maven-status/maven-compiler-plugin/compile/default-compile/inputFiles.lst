@@ -1,12 +1,14 @@
-C:\Multiplataforma\gestionrecetakevincalo\src\main\java\com\mycompany\gestionreceta\JakartaRestConfiguration.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\Usuario.java
-C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\RegistroServlet.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\UsuarioServlet.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\LoginServlet.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\LogoutServlet.java
-C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\RecetaServlet.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\RecetaController.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\com\mycompany\gestionreceta\resources\JakartaEE10Resource.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\UsuarioController.java
+C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\FavoritoController.java
+C:\Multiplataforma\gestionrecetakevincalo\src\main\java\com\mycompany\gestionreceta\JakartaRestConfiguration.java
+C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\RegistroServlet.java
+C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\RecetaServlet.java
+C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\FavoritoServlet.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\Favorito.java
 C:\Multiplataforma\gestionrecetakevincalo\src\main\java\entidades\Receta.java
