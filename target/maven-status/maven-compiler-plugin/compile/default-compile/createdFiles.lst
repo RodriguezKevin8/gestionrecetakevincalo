@@ -9,6 +9,7 @@ entidades\EstadoFavorito.class
 entidades\UsuarioServlet.class
 entidades\EstadoReceta.class
 entidades\RecetaController.class
+entidades\RegistroServlet.class
 entidades\RecetaServlet.class
 entidades\UsuarioController.class
 entidades\Usuario.class
